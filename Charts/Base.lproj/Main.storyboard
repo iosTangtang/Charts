@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="buj-a1-GAH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chart-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,125 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UF-n2-GmB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2YO-YF-g6u"/>
+                                </constraints>
+                                <state key="normal" title="LineChart"/>
+                                <connections>
+                                    <segue destination="iHo-mH-782" kind="push" id="84U-9D-bbh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R2-kb-wVY">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="G7O-f5-VKS"/>
+                                </constraints>
+                                <state key="normal" title="PanCakeChart"/>
+                                <connections>
+                                    <segue destination="YeP-u7-u1O" kind="push" id="wZ4-aF-wG2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7I-qg-v3a">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tDw-B4-pZE"/>
+                                </constraints>
+                                <state key="normal" title="ColumChart"/>
+                                <connections>
+                                    <segue destination="mnB-pp-tNu" kind="push" id="61p-oP-LD7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4R2-kb-wVY" firstAttribute="top" secondItem="o7I-qg-v3a" secondAttribute="bottom" constant="40" id="0YQ-Yc-Zip"/>
+                            <constraint firstItem="4UF-n2-GmB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Djw-7P-RTc"/>
+                            <constraint firstItem="4R2-kb-wVY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ezK-jh-YyF"/>
+                            <constraint firstItem="o7I-qg-v3a" firstAttribute="top" secondItem="4UF-n2-GmB" secondAttribute="bottom" constant="40" id="gmt-AJ-cOy"/>
+                            <constraint firstItem="4UF-n2-GmB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="lrO-m8-ymh"/>
+                            <constraint firstItem="o7I-qg-v3a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nem-8T-dTR"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Chart" id="akk-qm-43c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="820" y="793"/>
+        </scene>
+        <!--Chart Line View Controller-->
+        <scene sceneID="b6y-5Z-f0D">
+            <objects>
+                <viewController id="iHo-mH-782" customClass="ChartLineViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mYQ-7X-qth"/>
+                        <viewControllerLayoutGuide type="bottom" id="EQF-7E-ZFq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dm8-Ty-fAH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iJU-0S-M3N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NnO-Hz-Hrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="36"/>
+        </scene>
+        <!--Chart Colum View Controller-->
+        <scene sceneID="elA-tv-qSG">
+            <objects>
+                <viewController id="mnB-pp-tNu" customClass="ChartColumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qaT-Cj-5l1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bx4-Jm-IuG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yte-zJ-IxG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="baQ-B0-MOK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mtx-Va-6N5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="714"/>
+        </scene>
+        <!--Chart Pan Cake View Controller-->
+        <scene sceneID="Tac-kC-jIK">
+            <objects>
+                <viewController id="YeP-u7-u1O" customClass="ChartPanCakeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tdH-hK-d61"/>
+                        <viewControllerLayoutGuide type="bottom" id="35e-0d-iMP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="msB-r1-1Hq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vep-v6-qwb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHG-Mm-uQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="1391"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KVC-8q-lvm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="buj-a1-GAH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ha4-2l-uot">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="e5k-Zk-3sz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6WF-Gu-FFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="792.95352323838085"/>
         </scene>
     </scenes>
 </document>

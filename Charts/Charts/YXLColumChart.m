@@ -11,7 +11,6 @@
 static int const bounceX = 5;
 
 @interface YXLColumChart () {
-    int _count;
     CGFloat _maxLabelWidth;
 }
 
@@ -36,7 +35,6 @@ static int const bounceX = 5;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _count = 0;
         _maxData = 0;
         _total = 0;
         _maxLabelWidth = 0;
@@ -145,14 +143,27 @@ static int const bounceX = 5;
         UILabel *label = [self viewWithTag:1000 + (index + 1)];
         CGFloat arc = [self.dataArray[index] intValue];
         CGFloat height = arc / self.total * (self.bounds.size.height - confineY);
-        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(label.frame.origin.x - _maxLabelWidth + bounceX,
-                                                                  self.bounds.size.height - confineY - height,
-                                                                  label.frame.size.width - bounceX * 2, height) cornerRadius:bounceX];
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(label.center.x - _maxLabelWidth, label.frame.origin.y)];
+        [path addLineToPoint:CGPointMake(label.center.x - _maxLabelWidth, self.bounds.size.height - confineY - height)];
+        
+        
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         shapeLayer.path = path.CGPath;
-        shapeLayer.strokeColor = [UIColor clearColor].CGColor;
+        shapeLayer.strokeColor = self.lineColor.CGColor;
         shapeLayer.fillColor = self.lineColor.CGColor;
+        shapeLayer.lineWidth = label.frame.size.width - bounceX * 2;
         [self.gradientView.layer addSublayer:shapeLayer];
+        
+        if (self.hasAnimation) {
+            CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+            basicAnimation.duration = self.animationDuration;
+            basicAnimation.repeatCount = 1;
+            basicAnimation.removedOnCompletion = YES;
+            basicAnimation.fromValue = @0.0;
+            basicAnimation.toValue = @1.0;
+            [shapeLayer addAnimation:basicAnimation forKey:@"strokeEnd"];
+        }
         
     }
     

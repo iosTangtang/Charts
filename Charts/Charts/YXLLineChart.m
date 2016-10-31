@@ -9,7 +9,6 @@
 #import "YXLLineChart.h"
 
 @interface YXLLineChart (){
-    int _count;
     CGFloat _maxLabelWidth;
 }
 
@@ -36,7 +35,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _count = 0;
         _maxData = 0;
         _total = 0;
         _maxLabelWidth = 0;
@@ -140,7 +138,7 @@
     [path moveToPoint:CGPointMake(label.center.x - _maxLabelWidth,
                                   (self.total - [self.dataArray[0] intValue]) / (double)self.total * (self.bounds.size.height - confineY))];
     
-    for (int index = 1; index < 12; index++) {
+    for (int index = 1; index < self.heightXDatas.count; index++) {
         UILabel *monthLabel = [self viewWithTag:1000 + (index + 1)];
         CGFloat arc = [self.dataArray[index] intValue];
         [path addLineToPoint:CGPointMake(monthLabel.center.x - _maxLabelWidth, (self.total - arc) / self.total * (self.bounds.size.height - confineY))];
@@ -155,13 +153,15 @@
     self.shapeLayer.path = path.CGPath;
     [self.gradientView.layer addSublayer:self.shapeLayer];
     
-    CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    basicAnimation.duration = self.animationDuration;
-    basicAnimation.repeatCount = 1;
-    basicAnimation.removedOnCompletion = YES;
-    basicAnimation.fromValue = @0.0;
-    basicAnimation.toValue = @1.0;
-    [self.shapeLayer addAnimation:basicAnimation forKey:@"strokeEnd"];
+    if (self.hasAnimation) {
+        CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        basicAnimation.duration = self.animationDuration;
+        basicAnimation.repeatCount = 1;
+        basicAnimation.removedOnCompletion = YES;
+        basicAnimation.fromValue = @0.0;
+        basicAnimation.toValue = @1.0;
+        [self.shapeLayer addAnimation:basicAnimation forKey:@"strokeEnd"];
+    }
     
 }
 
