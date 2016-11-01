@@ -3,13 +3,13 @@
 简单的图表绘制组件，功能不多，但是支持自定义。正在持续更新中...
 
 ###LineChart
-![line](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年10月31日%20下午11.12.23.png)
+![line](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年11月1日%20下午10.52.32.png)
 
 ###BarChart
-![Bar](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年10月31日%20下午11.12.32.png)
+![Bar](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年11月1日%20下午10.52.36.png)
 
 ###PanCakeChart
-![PanCake](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年10月31日%20下午11.42.40.png)
+![PanCake](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年11月1日%20下午10.52.41.png)
 
 ###使用方法
 ```
