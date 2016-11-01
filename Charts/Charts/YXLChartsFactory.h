@@ -10,9 +10,9 @@
 #import "YXLBaseChart.h"
 
 typedef enum : NSUInteger {
-    YXLChartLine,
-    YXLChartColumnar,
-    YXLChartPanCake,
+    YXLChartLine,                   // 折线图
+    YXLChartColumnar,               // 柱状图
+    YXLChartPanCake                 // 饼图
 } YXLChartType;
 
 @interface YXLChartsFactory : NSObject

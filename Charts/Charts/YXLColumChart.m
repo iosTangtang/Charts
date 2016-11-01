@@ -18,6 +18,8 @@ static int const bounceX = 5;
 @property (nonatomic, strong) CAGradientLayer   *gradientLayer;
 @property (nonatomic, assign) int               maxData;
 @property (nonatomic, assign) int               total;
+@property (nonatomic, strong) UILabel           *valueLabel;
+@property (nonatomic, copy)   NSMutableArray    *labels;
 
 @end
 
@@ -30,6 +32,25 @@ static int const bounceX = 5;
         [self addSubview:_gradientView];
     }
     return _gradientView;
+}
+
+- (UILabel *)valueLabel {
+    if (!_valueLabel) {
+        _valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _valueLabel.textAlignment = NSTextAlignmentCenter;
+        _valueLabel.textColor = self.valueLabelColor;
+        _valueLabel.font = self.valueLabelFont;
+        [self addSubview:_valueLabel];
+        
+    }
+    return _valueLabel;
+}
+
+- (NSMutableArray *)labels {
+    if (!_labels) {
+        _labels = [NSMutableArray array];
+    }
+    return _labels;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -56,6 +77,8 @@ static int const bounceX = 5;
         monthLabel.font = self.labelFont;
         monthLabel.text = self.heightXDatas[index];
         [self addSubview:monthLabel];
+        
+        [self.labels addObject:monthLabel];
     }
 }
 
@@ -176,6 +199,39 @@ static int const bounceX = 5;
     [self p_createDataX];
     
     [self p_drawColumChart];
+}
+
+#pragma mark Touch Method
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.labels.count <= 0) {
+        return;
+    }
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.gradientView];
+    CGRect frame;
+    
+    for (int index = 0 ; index < self.heightXDatas.count; index++) {
+        UILabel *obj = self.labels[index];
+        frame = CGRectMake(obj.frame.origin.x - _maxLabelWidth, obj.frame.origin.y - self.gradientView.bounds.size.height,
+                           obj.frame.size.width, self.gradientView.bounds.size.height);
+        if (CGRectContainsPoint(frame, touchPoint)) {
+            NSString *value = [NSString stringWithFormat:@"%@ : %@", self.heightXDatas[index], self.dataArray[index]];
+            self.valueLabel.text = value;
+            CGSize containerSize = CGSizeMake(self.bounds.size.width, 30);
+            CGRect messageRect = [value boundingRectWithSize:containerSize options:NSStringDrawingUsesLineFragmentOrigin |
+                                  NSStringDrawingUsesFontLeading |
+                                  NSStringDrawingTruncatesLastVisibleLine
+                                                  attributes:@{NSFontAttributeName : self.valueLabel.font}
+                                                     context:NULL];
+            self.valueLabel.frame = CGRectMake(self.bounds.size.width / 2.0 - messageRect.size.width / 2.0,
+                                               self.gradientView.frame.origin.y - messageRect.size.height - 10,
+                                               messageRect.size.width,
+                                               messageRect.size.height);
+            break;
+        }
+    }
+    [self setNeedsDisplay];
 }
 
 @end

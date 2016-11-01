@@ -11,6 +11,7 @@
 @implementation YXLBaseChart
 
 - (void)drawChart {
+    
     NSLog(@"nothing");
 }
 

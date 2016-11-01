@@ -47,6 +47,8 @@
     base.lineWidth = 2.f;
     base.hasAnimation = YES;
     base.dashLineColor = [UIColor colorWithRed:255 / 255.0 green:227 / 255.0 blue:123 / 255.0 alpha:0.8];
+    base.valueLabelFont = [UIFont systemFontOfSize:14.f];
+    base.valueLabelColor = [UIColor grayColor];
     base.animationDuration = 0.5f;
     base.labelFont = [UIFont systemFontOfSize:10.f];
     base.hasDashLine = YES;

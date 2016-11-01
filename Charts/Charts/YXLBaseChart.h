@@ -11,6 +11,7 @@
 static CGFloat const confineX = 40;
 static CGFloat const confineY = 20;
 static int const standardData = 5000;
+static CGFloat const pointRaduis = 7;
 
 @interface YXLBaseChart : UIView
 
@@ -18,6 +19,9 @@ static int const standardData = 5000;
 @property (nonatomic, strong)   UIColor                 *dashLineColor;                     // 虚线颜色
 @property (nonatomic, assign)   CGFloat                 lineWidth;                          // 线条宽度
 @property (nonatomic, strong)   UIFont                  *labelFont;                         // label字体
+@property (nonatomic, strong)   UIColor                 *labelColor;                        // label字体颜色
+@property (nonatomic, strong)   UIFont                  *valueLabelFont;                    // 展示数据的label字体
+@property (nonatomic, strong)   UIColor                 *valueLabelColor;                   // 展示数据的label字体颜色
 @property (nonatomic, assign)   BOOL                    hasDashLine;                        // 是否开启坐标虚线
 @property (nonatomic, assign)   BOOL                    hasAnimation;                       // 是否开启动画
 @property (nonatomic, assign)   CGFloat                 animationDuration;                  // 动画时间

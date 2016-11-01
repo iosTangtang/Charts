@@ -14,9 +14,9 @@
 		660F23781DC7921E0038315D /* ChartLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F23771DC7921E0038315D /* ChartLineViewController.m */; };
 		660F237B1DC792300038315D /* ChartColumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F237A1DC792300038315D /* ChartColumViewController.m */; };
 		660F237E1DC792390038315D /* ChartPanCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F237D1DC792390038315D /* ChartPanCakeViewController.m */; };
-		660F23841DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.32.png in Resources */ = {isa = PBXBuildFile; fileRef = 660F23811DC797070038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.32.png */; };
-		660F23851DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.23.png in Resources */ = {isa = PBXBuildFile; fileRef = 660F23821DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.23.png */; };
-		660F23891DC79E0A0038315D /* Simulator Screen Shot 2016年10月31日 下午11.42.40.png in Resources */ = {isa = PBXBuildFile; fileRef = 660F23881DC79E0A0038315D /* Simulator Screen Shot 2016年10月31日 下午11.42.40.png */; };
+		660F238D1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.41.png in Resources */ = {isa = PBXBuildFile; fileRef = 660F238A1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.41.png */; };
+		660F238E1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.36.png in Resources */ = {isa = PBXBuildFile; fileRef = 660F238B1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.36.png */; };
+		660F238F1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.32.png in Resources */ = {isa = PBXBuildFile; fileRef = 660F238C1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.32.png */; };
 		662537AD1DC5D366005EC617 /* YXLChartsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 662537AC1DC5D366005EC617 /* YXLChartsFactory.m */; };
 		663128191DC5C8FF004760A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 663128181DC5C8FF004760A3 /* main.m */; };
 		6631281C1DC5C8FF004760A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6631281B1DC5C8FF004760A3 /* AppDelegate.m */; };
@@ -60,9 +60,9 @@
 		660F237A1DC792300038315D /* ChartColumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartColumViewController.m; sourceTree = "<group>"; };
 		660F237C1DC792390038315D /* ChartPanCakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartPanCakeViewController.h; sourceTree = "<group>"; };
 		660F237D1DC792390038315D /* ChartPanCakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartPanCakeViewController.m; sourceTree = "<group>"; };
-		660F23811DC797070038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年10月31日 下午11.12.32.png"; sourceTree = "<group>"; };
-		660F23821DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年10月31日 下午11.12.23.png"; sourceTree = "<group>"; };
-		660F23881DC79E0A0038315D /* Simulator Screen Shot 2016年10月31日 下午11.42.40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年10月31日 下午11.42.40.png"; sourceTree = "<group>"; };
+		660F238A1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年11月1日 下午10.52.41.png"; sourceTree = "<group>"; };
+		660F238B1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年11月1日 下午10.52.36.png"; sourceTree = "<group>"; };
+		660F238C1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot 2016年11月1日 下午10.52.32.png"; sourceTree = "<group>"; };
 		662537AB1DC5D366005EC617 /* YXLChartsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXLChartsFactory.h; sourceTree = "<group>"; };
 		662537AC1DC5D366005EC617 /* YXLChartsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXLChartsFactory.m; sourceTree = "<group>"; };
 		663128141DC5C8FF004760A3 /* Charts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,9 +111,9 @@
 		660F237F1DC796FC0038315D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				660F23881DC79E0A0038315D /* Simulator Screen Shot 2016年10月31日 下午11.42.40.png */,
-				660F23811DC797070038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.32.png */,
-				660F23821DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.23.png */,
+				660F238A1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.41.png */,
+				660F238B1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.36.png */,
+				660F238C1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.32.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -319,12 +319,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				660F23841DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.32.png in Resources */,
 				663128271DC5C8FF004760A3 /* LaunchScreen.storyboard in Resources */,
-				660F23851DC797080038315D /* Simulator Screen Shot 2016年10月31日 下午11.12.23.png in Resources */,
+				660F238D1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.41.png in Resources */,
+				660F238E1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.36.png in Resources */,
+				660F238F1DC8E3E20038315D /* Simulator Screen Shot 2016年11月1日 下午10.52.32.png in Resources */,
 				663128241DC5C8FF004760A3 /* Assets.xcassets in Resources */,
 				663128221DC5C8FF004760A3 /* Main.storyboard in Resources */,
-				660F23891DC79E0A0038315D /* Simulator Screen Shot 2016年10月31日 下午11.42.40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

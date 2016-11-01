@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UIBezierPath      *path;
 @property (nonatomic, assign) int               maxData;
 @property (nonatomic, assign) int               total;
+@property (nonatomic, strong) UILabel           *valueLabel;
+@property (nonatomic, copy)   NSMutableArray    *labels;
 
 @end
 
@@ -30,6 +32,25 @@
         [self addSubview:_gradientView];
     }
     return _gradientView;
+}
+
+- (UILabel *)valueLabel {
+    if (!_valueLabel) {
+        _valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _valueLabel.textAlignment = NSTextAlignmentCenter;
+        _valueLabel.textColor = self.valueLabelColor;
+        _valueLabel.font = self.valueLabelFont;
+        [self addSubview:_valueLabel];
+        
+    }
+    return _valueLabel;
+}
+
+- (NSMutableArray *)labels {
+    if (!_labels) {
+        _labels = [NSMutableArray array];
+    }
+    return _labels;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -54,8 +75,11 @@
         monthLabel.tag = 1000 + (index + 1);
         monthLabel.textAlignment = NSTextAlignmentCenter;
         monthLabel.font = self.labelFont;
+        monthLabel.textColor = self.labelColor;
         monthLabel.text = self.heightXDatas[index];
         [self addSubview:monthLabel];
+        
+        [self.labels addObject:monthLabel];
     }
 }
 
@@ -72,6 +96,7 @@
         dataLabel.tag = 2000 + (index + 1);
         dataLabel.textAlignment = NSTextAlignmentCenter;
         dataLabel.font = self.labelFont;
+        dataLabel.textColor = self.labelColor;
         dataLabel.text = [NSString stringWithFormat:@"%dk", (standardData / 1000) * (count - index)];
         [self addSubview:dataLabel];
         
@@ -126,7 +151,7 @@
 }
 
 - (void)p_drawLineChart {
-    if (self.dataArray.count <= 0) {
+    if (self.dataArray.count <= 0 || self.heightXDatas.count <= 0) {
         return ;
     }
     
@@ -138,9 +163,29 @@
     [path moveToPoint:CGPointMake(label.center.x - _maxLabelWidth,
                                   (self.total - [self.dataArray[0] intValue]) / (double)self.total * (self.bounds.size.height - confineY))];
     
+    UIBezierPath *firstPointPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(label.center.x - _maxLabelWidth - pointRaduis / 2.0,
+                                                                                 (self.total - [self.dataArray[0] intValue]) / (double)self.total *
+                                                                                 (self.bounds.size.height - confineY) - pointRaduis / 2.0,
+                                                                                 pointRaduis, pointRaduis) cornerRadius:pointRaduis];
+    CAShapeLayer *firstPointLayer = [CAShapeLayer layer];
+    firstPointLayer.path = firstPointPath.CGPath;
+    firstPointLayer.strokeColor = self.lineColor.CGColor;
+    firstPointLayer.fillColor = self.lineColor.CGColor;
+    [self.gradientView.layer addSublayer:firstPointLayer];
+    
     for (int index = 1; index < self.heightXDatas.count; index++) {
         UILabel *monthLabel = [self viewWithTag:1000 + (index + 1)];
         CGFloat arc = [self.dataArray[index] intValue];
+        UIBezierPath *pointPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(monthLabel.center.x - _maxLabelWidth - pointRaduis / 2.0,
+                                                                                     (self.total - arc) / self.total *
+                                                                                     (self.bounds.size.height - confineY) - pointRaduis / 2.0,
+                                                                                     pointRaduis, pointRaduis) cornerRadius:pointRaduis];
+        CAShapeLayer *pointLayer = [CAShapeLayer layer];
+        pointLayer.path = pointPath.CGPath;
+        pointLayer.strokeColor = self.lineColor.CGColor;
+        pointLayer.fillColor = self.lineColor.CGColor;
+        [self.gradientView.layer addSublayer:pointLayer];
+        
         [path addLineToPoint:CGPointMake(monthLabel.center.x - _maxLabelWidth, (self.total - arc) / self.total * (self.bounds.size.height - confineY))];
     }
     
@@ -184,6 +229,35 @@
     [self p_createDataX];
     
     [self p_drawLineChart];
+}
+
+#pragma mark Touch Method
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.gradientView];
+    CGRect frame;
+    
+    for (int index = 0 ; index < self.heightXDatas.count; index++) {
+        UILabel *obj = self.labels[index];
+        frame = CGRectMake(obj.frame.origin.x - _maxLabelWidth, obj.frame.origin.y - self.gradientView.bounds.size.height,
+                           obj.frame.size.width, self.gradientView.bounds.size.height);
+        if (CGRectContainsPoint(frame, touchPoint)) {
+            NSString *value = [NSString stringWithFormat:@"%@ : %@", self.heightXDatas[index], self.dataArray[index]];
+            self.valueLabel.text = value;
+            CGSize containerSize = CGSizeMake(self.bounds.size.width, 30);
+            CGRect messageRect = [value boundingRectWithSize:containerSize options:NSStringDrawingUsesLineFragmentOrigin |
+                                  NSStringDrawingUsesFontLeading |
+                                  NSStringDrawingTruncatesLastVisibleLine
+                                                    attributes:@{NSFontAttributeName : self.valueLabel.font}
+                                                       context:NULL];
+            self.valueLabel.frame = CGRectMake(self.bounds.size.width / 2.0 - messageRect.size.width / 2.0,
+                                               self.gradientView.frame.origin.y - messageRect.size.height - 10,
+                                               messageRect.size.width,
+                                               messageRect.size.height);
+            break;
+        }
+    }
+    [self setNeedsDisplay];
 }
 
 @end
