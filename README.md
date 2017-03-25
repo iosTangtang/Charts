@@ -2,16 +2,16 @@
 
 简单的图表绘制组件，功能不多，但是支持自定义。正在持续更新中...
 
-###LineChart
+### LineChart
 ![line](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年11月1日%20下午10.52.32.png)
 
-###BarChart
+### BarChart
 ![Bar](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年11月1日%20下午10.52.36.png)
 
-###PanCakeChart
+### PanCakeChart
 ![PanCake](https://github.com/iosTangtang/Charts/blob/master/Charts/Resource/Simulator%20Screen%20Shot%202016年11月1日%20下午10.52.41.png)
 
-###使用方法
+### 使用方法
 ```
 YXLBaseChart *lineChart = [YXLChartsFactory chartsFactory:YXLChartLine];
  lineChart.frame = CGRectMake(25, 110, [UIScreen mainScreen].bounds.size.width - 50, 280);
@@ -22,7 +22,7 @@ YXLBaseChart *lineChart = [YXLChartsFactory chartsFactory:YXLChartLine];
  [self.view addSubview:lineChart];
 ```
 
-###设置属性以达到自定义
+### 设置属性以达到自定义
 ```
 @property (nonatomic, strong)   UIColor                 *lineColor;                         // 线条颜色
 @property (nonatomic, strong)   UIColor                 *dashLineColor;                     // 虚线颜色
@@ -37,7 +37,7 @@ YXLBaseChart *lineChart = [YXLChartsFactory chartsFactory:YXLChartLine];
 @property (nonatomic, copy)     NSArray <UIColor *>     *panCakeColors;                     // 饼图中的颜色组
 ```
 
-###枚举类型
+### 枚举类型
 ```
 typedef enum : NSUInteger {
     YXLChartLine,                   // 折线图
@@ -46,7 +46,7 @@ typedef enum : NSUInteger {
 } YXLChartType;
 ```
 
-####11-02更新
+#### 11-02更新
 - 添加饼图动画 
 - 每个图表新增点击对应的区域显示数值
 - 功能还是很简陋，代码风格不好，见谅
